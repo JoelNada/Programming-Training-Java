@@ -42,6 +42,6 @@ public class Pangram {
             res1.add(asciis1.get(i+1)-asciis1.get(i));
         }
         System.out.println(res1);
-
+//i added this part
     }
 }
