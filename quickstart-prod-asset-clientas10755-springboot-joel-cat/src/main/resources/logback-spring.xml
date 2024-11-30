@@ -1,0 +1,41 @@
+<configuration>
+    <springProperty scope="context" name="serviceName" source="info.app.name" defaultValue="springboot-helloworld-api"/>
+    <springProperty scope="context" name="serviceVersion" source="info.app.version" defaultValue="0.0.0"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%cyan(%d{dd-MM-yyyy HH:mm:ss.SSS})  ${serviceName} ${serviceVersion} %highlight(%level)
+                %magenta([%thread]) %logger{35} - %replace(%msg){"password[&amp;!@#$%^*()_+a-zA-Z0-9_=~:;./|\\/]*",
+                "password=*****"}%n
+            </pattern>
+            <outputPatternAsHeader>true</outputPatternAsHeader>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-AUDIT"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DEV_HOME}/audit.txt</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${DEV_HOME}/archived/debug.%d{yyyy-MM-dd}.%i.txt
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+              <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter
+                    class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                <prettyPrint>true</prettyPrint>
+            </jsonFormatter>
+
+            <timestampFormat>yyyy-MM-dd' 'HH:mm:ss</timestampFormat>
+            <appendLineSeparator>true</appendLineSeparator>
+            <includeContextName>false</includeContextName>
+        </layout>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

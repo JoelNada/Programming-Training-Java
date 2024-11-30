@@ -9,7 +9,7 @@ public class Main {
         System.out.println("Hello, World!");
         String word = "oneTwoThree";
         List<String> allWords = Arrays.stream(word.split("(?=[A-Z])")).toList();
-        System.out.println("Hello, World!");
+        System.out.println(allWords);
         List<Integer> list = Arrays.asList(1,2,3,4,5);
         list.stream().map(nums -> nums*2).forEach(System.out::println);
         String name = "Naveen";

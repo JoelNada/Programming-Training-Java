@@ -1,0 +1,69 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.cognizant'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.1.1'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.1.1'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '3.1.1'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.1.1'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.1'
+	implementation group: 'org.springframework.security', name: 'spring-security-config', version: '6.1.5'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'io.projectreactor:reactor-core'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'com.github.ozlerhakan:poiji:3.0.0'
+	implementation 'commons-io:commons-io:2.11.0'
+	implementation 'commons-validator:commons-validator:1.7'
+	implementation group: 'com.github.dhorions', name: 'boxable', version: '1.7.0'
+	implementation group: 'com.intuit.karate', name: 'karate-core', version: '1.4.0'
+	testImplementation 'com.intuit.karate:karate-junit5:1.4.0'
+	implementation 'ch.qos.logback:logback-classic'
+	implementation 'ch.qos.logback.contrib:logback-jackson:0.1.5'
+	implementation 'ch.qos.logback.contrib:logback-json-classic:0.1.5'
+	implementation group: 'org.springframework', name: 'spring-websocket', version: '6.0.12'
+	implementation group: 'org.springframework', name: 'spring-messaging', version: '6.0.12'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.15.2'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
+	implementation group: 'io.projectreactor', name: 'reactor-core', version: '3.5.11'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+}
+sourceSets {
+	test {
+		resources {
+			srcDirs = ['src/test/resources','src/test/java'] // define `src/test/resources` and `src/test/java` as resource folders
+			exclude '**/*.java'
+		}
+	}
+}
+tasks.named('test') {
+	useJUnitPlatform()
+}
