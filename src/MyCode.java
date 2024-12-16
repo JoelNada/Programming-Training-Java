@@ -19,10 +19,9 @@ public class MyCode {
     }
 
     public static void sumOfAllDigits(int num){
-        int temp=num,rev=0,sum=0;
+        int temp=num,sum=0;
         while (num!=0){
-            rev=num%10;
-            sum=sum+rev;
+            sum=sum+(num%10);
             num/=10;
         }
         System.out.println(sum);
@@ -30,10 +29,10 @@ public class MyCode {
 
     private static void generateFibonacci(int n) {
         int first=0,second=1,next=0;
-        System.out.printf("%s %s ",first,second);
-        for(int i=2;i<n;i++){
+        //System.out.printf("%s %s ",first,second);
+        for(int i=0;i<n;i++){
+            System.out.printf("%s ",first);
             next=first+second;
-            System.out.printf("%s ",next);
             first=second;
             second=next;
         }
