@@ -67,6 +67,7 @@ public class Pangram {
                         return "specialChars";
                     }
                 }));
+         /// this groupingBy works well !!
         groupedMixture.forEach((k,v)-> {
             if(Objects.equals(k, "alphabets")){
                 System.out.println(k+" : "+v.stream().sorted().collect(Collectors.groupingBy(s->{
@@ -82,6 +83,7 @@ public class Pangram {
                 System.out.println(k+" : "+v);
             }
         });
+        ///List<Object> objects = List.of("1","Hello");
         String mixture = "Hello1234";
         System.out.println(Arrays.stream(mixture.split(""))
                 .map(s->s.charAt(0))

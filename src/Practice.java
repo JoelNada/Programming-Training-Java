@@ -6,7 +6,7 @@ public class Practice {
 
     static String input;
 
-
+ /// String compression program
     public static void compressString(){
         if(input.isEmpty()){
             System.out.println("Input can't be empty, please enter again !!");

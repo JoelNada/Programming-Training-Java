@@ -9,6 +9,22 @@ public class Employee {
     List<String> skills;
     List<String> phoneNumbers;
     private String gender;
+    private String department;
+    private String designation;
+    private int experienceYears;
+
+
+    public Employee(String name, int age, double salary, List<String> skills, List<String> phoneNumbers, String gender, String department, String designation, int experienceYears) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.skills = skills;
+        this.phoneNumbers = phoneNumbers;
+        this.gender = gender;
+        this.department = department;
+        this.designation = designation;
+        this.experienceYears = experienceYears;
+    }
 
     public Employee(String name, int age, double salary, List<String> skills, List<String> phoneNumbers, String gender) {
         this.name = name;
@@ -67,6 +83,30 @@ public class Employee {
         this.gender = gender;
     }
 
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public int getExperienceYears() {
+        return experienceYears;
+    }
+
+    public void setExperienceYears(int experienceYears) {
+        this.experienceYears = experienceYears;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -76,6 +116,9 @@ public class Employee {
                 ", skills=" + skills +
                 ", phoneNumbers=" + phoneNumbers +
                 ", gender='" + gender + '\'' +
+                ", department='" + department + '\'' +
+                ", designation='" + designation + '\'' +
+                ", experienceYears=" + experienceYears +
                 '}';
     }
 }
